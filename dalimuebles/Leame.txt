@@ -1,0 +1,14 @@
+Descripción de la aplicación.
+Dalimuebles es una aplicación, la cual está pensada para llevar un control de la cantidad de productos o stock, 
+para poder consultar cuando sea necesario. 
+La misma cuenta con una interfaz gráfica para poder visualizar que campos se pueden ingresar,
+ y posteriormente ir viendo que se va cargando hasta el momento.
+
+Objetivos:
+
+Para lograr el objetivo, se desarrollaron una serie de funcionalidades:
+1.	Alta de productos -> registramos nuevos productos
+2.	Baja de productos -> borramos productos existentes
+3.	Modificación de productos -> modificamos cualquier campo de cualquier producto
+4.	Consulta -> buscamos algún producto en particular en la lista.
+5.	Respalda todos los datos en una base de datos local. 
