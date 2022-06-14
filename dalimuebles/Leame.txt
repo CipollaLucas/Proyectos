@@ -3,6 +3,12 @@ Dalimuebles es una aplicación, la cual está pensada para llevar un control de 
 para poder consultar cuando sea necesario. 
 La misma cuenta con una interfaz gráfica para poder visualizar que campos se pueden ingresar,
  y posteriormente ir viendo que se va cargando hasta el momento.
+ 
+La aplicación esta construida con Visual Studio Code.
+Se utiliza la programación a objetos con el patrón MVC.
+Tiene execpciones mediante el uso de REGEX
+Se utiliza peewee como ORM, vinculado con sqlite3
+La parte visual está construida con Tkinter.
 
 Objetivos:
 
