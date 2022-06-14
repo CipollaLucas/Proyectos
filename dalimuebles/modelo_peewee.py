@@ -1,3 +1,4 @@
+from email import message
 import re
 from peewee import *
 from tkinter.messagebox import *
@@ -38,8 +39,8 @@ class Abmc:
     def funcion_g(self, var_nombre, var_medida, var_descripcion, var_precio):
 
         try:
-            """La REGEX con la validación de sólo letras -- ^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]*$"""
-            patron = "^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]*$"
+            """La REGEX con la validación de sólo letras y un minimo de 2 y máximo de 254 caracteres -- [a-zA-Z ]{2,254}"""
+            patron = "[a-zA-Z ]{2,254}"
             patron_nombre = var_nombre.get()
             if re.match(patron, patron_nombre):
                 mueble = Muebles()
@@ -50,10 +51,13 @@ class Abmc:
                 mueble.save()
                 showinfo("Alta", "Registro Ok!")
             else:
-                showerror("Error validadción", "Recuerde que el nombre es sólo letras.")
+                raise TypeError("Raise de nombre en Alta.")
+        except TypeError as mensaje:
+            print(mensaje)
+            showerror("Error validación", "Recuerde que el nombre es sólo letras.")
 
-        except Exception as error1:
-            print(error1)
+        finally:
+            print("Terminó.")
 
     """Función actualizar"""
 
@@ -109,7 +113,7 @@ class Abmc:
         item_seleccionado = tree_principal.focus()
         valor_id = tree_principal.item(item_seleccionado)
         try:
-            patron = "^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]*$"
+            patron = "[a-zA-Z ]{2,254}"
             patron_nombre = nuevo_nombre.get()
             if re.match(patron, patron_nombre):
                 actualizar = Muebles.update(
@@ -121,6 +125,9 @@ class Abmc:
                 actualizar.execute()
                 showinfo("Modificacion", "Modificado con éxito")
             else:
-                showerror("ERROR DE VALIDACION", "El atributo nombre es sólo letras")
-        except Exception as error2:
-            print(error2)
+                raise TypeError("Raise de nombre en Modificacion.")
+        except TypeError as mensaje:
+            print(mensaje)
+            showerror("Error validación", "Recuerde que el nombre es sólo letras.")
+        finally:
+            print("Terminó modificar.")
